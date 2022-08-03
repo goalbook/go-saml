@@ -21,7 +21,7 @@ func Sign(xml string, privateKeyPath string) (string, error) {
 		return "", errors.New("Count not parse private key")
 	}
 
-	key, err := x509.ParsePKCS1PrivateKey(pemBlock.Bytes)
+	key, err := x509.ParsePKCS8PrivateKey(pemBlock.Bytes)
 	if err != nil {
 		return "", err
 	}
